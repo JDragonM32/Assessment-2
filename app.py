@@ -9,3 +9,11 @@ def hello_world():
 @app.route("/user")
 def user():
     return render_template('user.html')
+
+@app.route("/reference")
+def reference():
+    return render_template('reference.html')
+
+@app.route("/builder")
+def builder():
+    return render_template('builder.html')
