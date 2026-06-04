@@ -1,147 +1,48 @@
 <h1>Reference</h1>
 <p>The reference section allows you to view all the rules for units</p>
 
-<button onclick="showImage()">Warboss</button> 
-    <div id="image-container" style="display: none; margin-top: 20px;">
-        <img src="{{ url_for('static', filename='warboss.jpg') }}" alt="Warboss">
-    </div>
+<div class="gallery-container">
+        <div class="image-card">
+            <button id="btn1" onclick="toggleimage('img1', 'btn1')">Warboss</button>
+            <img id="img1" src="{{ url_for('static', filename='warboss.jpg') }}" alt="Warboss" style="display: none">
+        </div>
+
+        <div class="image-card">
+            <button id="btn2" onclick="toggleimage('img2', 'btn2')">Weirdboy</button>
+            <img id="img2" src="{{ url_for('static', filename='weirdboy.jpg') }}" alt="Weirdboy" style="display: none">
+        </div>
+
+        <div class="image-card">
+            <button id="btn3" onclick="toggleimage('img3', 'btn3')">Boyz</button>
+            <img id="img3" src="{{ url_for('static', filename='boyz.jpg') }}" alt="Boyz" style="display: none">
+        </div>
+
+        <div class="image-card">
+            <button id="btn4" onclick="toggleimage('img4', 'btn4')">Gretchin</button>
+            <img id="img4" src="{{ url_for('static', filename='gretchin.jpg') }}" alt="Gretchin" style="display: none">
+        </div>
+
+        <div class="image-card">
+            <button id="btn5" onclick="toggleimage('img5', 'btn5')">Big Mek Dakkarig</button>
+            <img id="img5" src="{{ url_for('static', filename='bigmekdakkarig.jpg') }}" alt="Big Mek Dakkarig" style="display: none">
+        </div>
+
+</div>
 
     <script>
-        function showImage() {
-            document.getElementById('image-container').style.display = 'block';
+        function toggleimage(imageid, buttonid) {
+            const img = document.getElementById(imageid);
+            const btn = document.getElementById(buttonid);
+
+            if (img.style.display === 'none') {
+                img.style.display = 'block';
+                btn.textContent = 'Hide';
+            } else {
+                img.style.display = 'none';
+                btn.textContent = img.alt;
+            }
         }
     </script>
 
 <br>
 
-<button onclick="showImage()">Weirdboy</button> 
-    <div id="image-container" style="display: none; margin-top: 20px;">
-        <img src="{{ url_for('static', filename='weirdboy.jpg') }}" alt="Weirdboy">
-    </div>
-
-    <script>
-        function showImage() {
-            document.getElementById('image-container').style.display = 'block';
-        }
-    </script>
-
-<br>
-
-<button onclick="showImage()">Boyz</button> 
-    <div id="image-container" style="display: none; margin-top: 20px;">
-        <img src="{{ url_for('static', filename='boyz.jpg') }}" alt="Boyz">
-    </div>
-
-    <script>
-        function showImage() {
-            document.getElementById('image-container').style.display = 'block';
-        }
-    </script>
-
-<br>
-
-<button onclick="showImage()">Gretchin</button> 
-    <div id="image-container" style="display: none; margin-top: 20px;">
-        <img src="{{ url_for('static', filename='grechin.jpg') }}" alt="Gretchin">
-    </div>
-
-    <script>
-        function showImage() {
-            document.getElementById('image-container').style.display = 'block';
-        }
-    </script>
-
-<br>
-
-<button onclick="showImage()">Big Mek Dakkarig</button> 
-    <div id="image-container" style="display: none; margin-top: 20px;">
-        <img src="{{ url_for('static', filename='bigmekdakkarig.jpg') }}" alt="Big Mek Dakkarig">
-    </div>
-
-    <script>
-        function showImage() {
-            document.getElementById('image-container').style.display = 'block';
-        }
-    </script>
-
-<br>
-
-<button onclick="showImage()">
-        Dakkarig
-</button>
-
-    <script>
-        function showImage() {
-            let imageContainer =
-                document.createElement("div");
-            imageContainer.className =
-                "image-container";
-
-            let image =
-                document.createElement("img");
-            image.src ="{{ url_for('static', filename='bigmekdakkarig.jpg') }}";
-            let closeButton =
-                document.createElement(
-                    "button"
-                );
-            closeButton.textContent = "Close";
-            closeButton.className =
-                "close-btn";
-            closeButton.onclick =
-                function () {
-                    document.body.removeChild(
-                        imageContainer
-                    );
-                };
-
-            imageContainer.appendChild(
-                closeButton
-            );
-            imageContainer.appendChild(image);
-
-            document.body.appendChild(
-                imageContainer
-            );
-        }
-    </script>
-
-    <br>
-
-    <button onclick="showImage()">
-        Warboss
-</button>
-
-    <script>
-        function showImage() {
-            let imageContainer =
-                document.createElement("div");
-            imageContainer.className =
-                "image-container";
-
-            let image =
-                document.createElement("img");
-            image.src ="{{ url_for('static', filename='warboss.jpg') }}";
-            let closeButton =
-                document.createElement(
-                    "button"
-                );
-            closeButton.textContent = "Close";
-            closeButton.className =
-                "close-btn";
-            closeButton.onclick =
-                function () {
-                    document.body.removeChild(
-                        imageContainer
-                    );
-                };
-
-            imageContainer.appendChild(
-                closeButton
-            );
-            imageContainer.appendChild(image);
-
-            document.body.appendChild(
-                imageContainer
-            );
-        }
-    </script>
