@@ -2,7 +2,7 @@
 <p>The reference section allows you to view all the rules for units</p>
 
 <button onclick="showImage()">Warboss</button> 
-<div id="image-container" style="display: none; margin-top: 20px;">
+    <div id="image-container" style="display: none; margin-top: 20px;">
         <img src="{{ url_for('static', filename='warboss.jpg') }}" alt="Warboss">
     </div>
 
@@ -15,7 +15,7 @@
 <br>
 
 <button onclick="showImage()">Weirdboy</button> 
-<div id="image-container" style="display: none; margin-top: 20px;">
+    <div id="image-container" style="display: none; margin-top: 20px;">
         <img src="{{ url_for('static', filename='weirdboy.jpg') }}" alt="Weirdboy">
     </div>
 
@@ -25,10 +25,10 @@
         }
     </script>
 
-    <br>
+<br>
 
-    <button onclick="showImage()">Boyz</button> 
-<div id="image-container" style="display: none; margin-top: 20px;">
+<button onclick="showImage()">Boyz</button> 
+    <div id="image-container" style="display: none; margin-top: 20px;">
         <img src="{{ url_for('static', filename='boyz.jpg') }}" alt="Boyz">
     </div>
 
@@ -38,10 +38,10 @@
         }
     </script>
 
-    <br>
+<br>
 
-    <button onclick="showImage()">Gretchin</button> 
-<div id="image-container" style="display: none; margin-top: 20px;">
+<button onclick="showImage()">Gretchin</button> 
+    <div id="image-container" style="display: none; margin-top: 20px;">
         <img src="{{ url_for('static', filename='grechin.jpg') }}" alt="Gretchin">
     </div>
 
@@ -51,15 +51,97 @@
         }
     </script>
 
-    <br>
+<br>
 
-    <button onclick="showImage()">Big Mek Dakkarig</button> 
-<div id="image-container" style="display: none; margin-top: 20px;">
+<button onclick="showImage()">Big Mek Dakkarig</button> 
+    <div id="image-container" style="display: none; margin-top: 20px;">
         <img src="{{ url_for('static', filename='bigmekdakkarig.jpg') }}" alt="Big Mek Dakkarig">
     </div>
 
     <script>
         function showImage() {
             document.getElementById('image-container').style.display = 'block';
+        }
+    </script>
+
+<br>
+
+<button onclick="showImage()">
+        Dakkarig
+</button>
+
+    <script>
+        function showImage() {
+            let imageContainer =
+                document.createElement("div");
+            imageContainer.className =
+                "image-container";
+
+            let image =
+                document.createElement("img");
+            image.src ="{{ url_for('static', filename='bigmekdakkarig.jpg') }}";
+            let closeButton =
+                document.createElement(
+                    "button"
+                );
+            closeButton.textContent = "Close";
+            closeButton.className =
+                "close-btn";
+            closeButton.onclick =
+                function () {
+                    document.body.removeChild(
+                        imageContainer
+                    );
+                };
+
+            imageContainer.appendChild(
+                closeButton
+            );
+            imageContainer.appendChild(image);
+
+            document.body.appendChild(
+                imageContainer
+            );
+        }
+    </script>
+
+    <br>
+
+    <button onclick="showImage()">
+        Warboss
+</button>
+
+    <script>
+        function showImage() {
+            let imageContainer =
+                document.createElement("div");
+            imageContainer.className =
+                "image-container";
+
+            let image =
+                document.createElement("img");
+            image.src ="{{ url_for('static', filename='warboss.jpg') }}";
+            let closeButton =
+                document.createElement(
+                    "button"
+                );
+            closeButton.textContent = "Close";
+            closeButton.className =
+                "close-btn";
+            closeButton.onclick =
+                function () {
+                    document.body.removeChild(
+                        imageContainer
+                    );
+                };
+
+            imageContainer.appendChild(
+                closeButton
+            );
+            imageContainer.appendChild(image);
+
+            document.body.appendChild(
+                imageContainer
+            );
         }
     </script>
