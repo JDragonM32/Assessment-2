@@ -3,14 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-
         <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}"
     </head>
+
     <body>
         <nav class="navbar">
-            <a class="active" href="index">Index</a>
-            <a href="reference">Reference</a>
-            <a href="builder">Builder</a>
+                <a href="index" class="nav-link">Index</a>
+                <a href="reference" class="nav-link">Reference</a>
+                <a href="builder" class="nav-link">Builder</a>
+            </nav>
         </nav>
 
         {% block content %}{% endblock %}

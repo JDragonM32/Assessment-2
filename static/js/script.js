@@ -13,3 +13,14 @@
         btn.classList.add('clicked');
         img.style.display = 'block';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const currenturl = window.location.href;
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach(link => {
+            if (link.href === currenturl) {
+                link.classList.add("active");
+            }
+        });
+    });
