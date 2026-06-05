@@ -19,3 +19,17 @@
     background-color: #04AA6D;
     color: white;
 }
+
+button {
+    border: 2px solid #999;
+    background: #e0e0e0;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+button.clicked {
+    background: #6b6b6b;
+    color: white;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3); /* inset shadow = pressed look */
+    transform: translateY(2px); /* shifts down slightly */
+}
