@@ -1,48 +1,41 @@
-<h1>Reference</h1>
-<p>The reference section allows you to view all the rules for units</p>
-
-<div class="gallery-container">
-        <div class="image-card">
-            <button id="btn1" onclick="toggleimage('img1', 'btn1')">Warboss</button>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ref</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </head>
+    <body>
+        <h1>Reference</h1>
+        <p>The reference section allows you to view all the rules for units</p>
+        <div class="gallery-container">
+            <div class="image-card">
+                <button id="btn1" onclick="toggleimage('img1', 'btn1')">Warboss</button>
+            </div>
+            
+            <div class="image-card">
+                <button id="btn2" onclick="toggleimage('img2', 'btn2')">Weirdboy</button>
+            </div>
+            
+            <div class="image-card">
+                <button id="btn3" onclick="toggleimage('img3', 'btn3')">Boyz</button>
+            </div>
+            
+            <div class="image-card">
+                <button id="btn4" onclick="toggleimage('img4', 'btn4')">Gretchin</button>
+            </div>
+            
+            <div class="image-card">
+                <button id="btn5" onclick="toggleimage('img5', 'btn5')">Big Mek Dakkarig</button>
+            </div>
+        </div>
+        <div>
             <img id="img1" src="{{ url_for('static', filename='warboss.jpg') }}" alt="Warboss" style="display: none">
-        </div>
-
-        <div class="image-card">
-            <button id="btn2" onclick="toggleimage('img2', 'btn2')">Weirdboy</button>
             <img id="img2" src="{{ url_for('static', filename='weirdboy.jpg') }}" alt="Weirdboy" style="display: none">
-        </div>
-
-        <div class="image-card">
-            <button id="btn3" onclick="toggleimage('img3', 'btn3')">Boyz</button>
             <img id="img3" src="{{ url_for('static', filename='boyz.jpg') }}" alt="Boyz" style="display: none">
-        </div>
-
-        <div class="image-card">
-            <button id="btn4" onclick="toggleimage('img4', 'btn4')">Gretchin</button>
             <img id="img4" src="{{ url_for('static', filename='gretchin.jpg') }}" alt="Gretchin" style="display: none">
-        </div>
-
-        <div class="image-card">
-            <button id="btn5" onclick="toggleimage('img5', 'btn5')">Big Mek Dakkarig</button>
             <img id="img5" src="{{ url_for('static', filename='bigmekdakkarig.jpg') }}" alt="Big Mek Dakkarig" style="display: none">
         </div>
-
-</div>
-
-    <script>
-        function toggleimage(imageid, buttonid) {
-            const img = document.getElementById(imageid);
-            const btn = document.getElementById(buttonid);
-
-            if (img.style.display === 'none') {
-                img.style.display = 'block';
-                btn.textContent = 'Hide';
-            } else {
-                img.style.display = 'none';
-                btn.textContent = img.alt;
-            }
-        }
-    </script>
-
-<br>
+    </body>
+</html>
 
