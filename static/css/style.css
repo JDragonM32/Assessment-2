@@ -8,6 +8,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 17px;
     border-right: 1px solid #bbbbbb;
 }
@@ -18,6 +19,7 @@
 .nav-link.active {
     background-color: #04AA6D;
     color: white;
+    text-decoration: underline;
 }
 
 button {
@@ -47,6 +49,9 @@ img {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+}
 h2 {
     text-align: center;
     color: #04AA6D;
