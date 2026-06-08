@@ -33,3 +33,32 @@ button.clicked {
     box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3); /* inset shadow = pressed look */
     transform: translateY(2px); /* shifts down slightly */
 }
+
+.gallery-container {
+    text-align: center;
+}
+img {
+    margin: auto;
+}
+.points-box {
+    text-align: center;
+}
+.units-box {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #04AA6D;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    line-height: 0.3;
+}
+p {
+    text-align: center;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    line-height: 0.3;
+}
