@@ -4,6 +4,8 @@
         <title>Ref</title>
     </head>
     <body>
+                {% extends "base.html" %}
+        {% block content %}
         <h1>Reference</h1>
         <p>The reference section allows you to view all the rules for units</p>
         <div class="gallery-container">
@@ -34,6 +36,7 @@
             <img id="img4" src="{{ url_for('static', filename='gretchin.jpg') }}" alt="Gretchin" style="display: none">
             <img id="img5" src="{{ url_for('static', filename='bigmekdakkarig.jpg') }}" alt="Big Mek Dakkarig" style="display: none">
         </div>
+                {% endblock %}
     </body>
 </html>
 
