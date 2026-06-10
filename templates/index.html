@@ -1,6 +1,15 @@
-<!doctype html>
-<title>Hello from Flask</title>
-  <h1>Hello, World!</h1>
-  <button>click here</button>
-
-  <!--Index page should have a brief description of the app and what it can do with links to the other pages.-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+      {% extends "base.html" %}
+      {% block content %}
+      <title>Hello from Flask</title>
+      <h1>Hello, World!</h1>
+      <button>click here</button>
+      <p></p>
+      {% endblock %}
+    </body>
+</html>

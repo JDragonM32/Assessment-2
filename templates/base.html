@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </head>
+
+    <body>
+        <nav class="navbar">
+                <a href="index" class="nav-link">Index</a>
+                <a href="reference" class="nav-link">Reference</a>
+                <a href="builder" class="nav-link">Builder</a>
+                <a href="user" class="nav-link">User</a>
+            </nav>
+        </nav>
+
+        {% block content %}{% endblock %}
+
+    </body>
+    <footer>
+        <br>
+        <p>Note: data is accurate as at 5/6/2026</p>
+    </footer>
+</html>
