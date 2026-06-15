@@ -1,8 +1,8 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @app.route("/index")
 def index():
     return render_template('index.html')
@@ -17,4 +17,22 @@ def reference():
 
 @app.route("/builder")
 def builder():
-    return render_template('builder.html')
+    result = ''
+    if request.method == "POST":
+        try:
+            expression = request.form["display"]
+            result = eval(expression)
+        except Exception as e:
+            result = "error"
+    return render_template('builder.html', result=result)
+
+@app.route("/calculator", methods=["GET", "POST"])
+def calculator():
+    result = ''
+    if request.method == "POST":
+        try:
+            expression = request.form["display"]
+            result = eval(expression)
+        except Exception as e:
+            result = "error"
+    return render_template('calculator.html', result=result)
