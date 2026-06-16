@@ -2,6 +2,9 @@ from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
+totalpoints = 0;
+
+
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index")
 def index():
