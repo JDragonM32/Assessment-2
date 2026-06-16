@@ -43,10 +43,28 @@ img {
     margin: auto;
 }
 .points-box {
+    align-items: center;
     text-align: center;
 }
-.units-box {
+.pointsbtn {
     text-align: center;
+    width: max-content;
+}
+.units-box {
+    max-width: 50%;
+    text-align: left;
+}
+.btnunit {
+    align-self: center;
+    width: fit-content;
+}
+.btnminus {
+    align-self: left;
+    width: fit-content;
+}
+.btnplus {
+    align-self: right;
+    width: fit-content;
 }
 
 h1 {
@@ -54,6 +72,14 @@ h1 {
 }
 h2 {
     text-align: center;
+    color: #04AA6D;
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    line-height: 0.3;
+}
+h3 {
+    text-align: left;
     color: #04AA6D;
     text-decoration: underline;
     font-family: 'Courier New', Courier, monospace;
