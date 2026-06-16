@@ -156,8 +156,16 @@ p {
     width: 100%;
 }
 
+.unit-btns {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 .btn-class {
-    display: inline-block;
+    display: inline-flex;      /* change from inline-block to inline-flex */
+    align-items: center;       /* vertically centers content inside */
+    justify-content: center;
     padding: 10px 20px;
     background-color: #605d8a;
     color: white;
@@ -168,6 +176,9 @@ p {
     cursor: pointer;
     transition: background-color 0.2s ease;
     margin: 5px;
+    white-space: nowrap;
+    height: 44px;              /* fixed height for all elements */
+    box-sizing: border-box;    /* padding included in height */
 }
 
 .points-text {
