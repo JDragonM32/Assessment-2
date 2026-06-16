@@ -16,57 +16,58 @@
 
         <h2>Points Limit</h2>
         <div class="points-box">
-            <button class="pointsbtn">500pts</button>
-            <button class="pointsbtn">750pts</button>
-            <button class="pointsbtn">1000pts</button>
-            <button class="pointsbtn">1250pts</button>
-            <button class="pointsbtn">1500pts</button>
-            <button class="pointsbtn">1750pts</button>
-            <button class="pointsbtn">2000pts</button>
+            <a class="btn-class" href="/calculate/500">500pts</a>
+            <a class="btn-class" href="/calculate/750">750pts</a>
+            <a class="btn-class" href="/calculate/1000">1000pts</a>
+            <a class="btn-class" href="/calculate/1500">1500pts</a>
+            <a class="btn-class" href="/calculate/2000">2000pts</a>
         </div>
 
         <p></p>
 
         <p>each unit can only be selected upto 3 times (or 6 for Battleline)</p>
         <p>total points value of units must not exceed your points limit</p>
-
-        <h3>Leaders</h3>
-        <div class="units-box">
-            <button class="btnminus">-</button>
-            <button>Warboss - 75pts</button>
-            <button class="btnplus">+</button>
-            <p></p>
-            <button class="btnminus">-</button>
-            <button>Weirdboy - 65pts</button>
-            <button class="btnplus">+</button>
+        <div class="container">
+            <div>
+                <h3>Leaders</h3>
+                <div class="units-box">
+                    <button class="btnminus">-</button>
+                    <button>Warboss - 75pts</button>
+                    <button class="btnplus">+</button>
+                    <p></p>
+                    <button class="btnminus">-</button>
+                    <button>Weirdboy - 65pts</button>
+                    <button class="btnplus">+</button>
+                </div>
+                <h3>Battleline</h3>
+                <div class="units-box">
+                    <button class="btnminus">-</button>
+                    <button class="btnunit">Boyz (10) - 80pts</button>
+                    <button class="btnplus">+</button>
+                    <p></p>
+                    <button class="btnminus">-</button>
+                    <button class="btnunit">Boyz (20) - 170pts</button>
+                    <button class="btnplus">+</button>
+                    <p></p>
+                    <button class="btnminus">-</button>
+                    <button class="btnunit">Gretchin (10) - 40pts</button>
+                    <button class="btnplus">+</button>
+                    <p></p>
+                    <button class="btnminus">-</button>
+                    <button class="btnunit">Gretchin (20) - 80pts</button>
+                    <button class="btnplus">+</button>
+                </div>
+                <h3>Other</h3>
+                <div class="units-box">
+                    <button class="btnminus">-</button>
+                    <button>Big Mek Dakkarig - 120pts</button>
+                    <button class="btnplus">+</button>
+                </div>
+            </div>
+            <div>
+                <p class="points-text">Total Points : {{ points | default(0) }}</p>
+            </div>
         </div>
-
-        <h3>Battleline</h3>
-        <div class="units-box">
-            <button class="btnminus">-</button>
-            <button class="btnunit">Boyz (10) - 80pts</button>
-            <button class="btnplus">+</button>
-            <p></p>
-            <button class="btnminus">-</button>
-            <button class="btnunit">Boyz (20) - 170pts</button>
-            <button class="btnplus">+</button>
-            <p></p>
-            <button class="btnminus">-</button>
-            <button class="btnunit">Gretchin (10) - 40pts</button>
-            <button class="btnplus">+</button>
-            <p></p>
-            <button class="btnminus">-</button>
-            <button class="btnunit">Gretchin (20) - 80pts</button>
-            <button class="btnplus">+</button>
-        </div>
-
-        <h3>Other</h3>
-        <div class="units-box">
-            <button class="btnminus">-</button>
-            <button>Big Mek Dakkarig - 120pts</button>
-            <button class="btnplus">+</button>
-        </div>
-
         <p></p>
         {% endblock %}
     </body>

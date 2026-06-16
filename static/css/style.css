@@ -146,3 +146,55 @@ p {
   background: hsl(357, 100%, 72%);
   height: auto; /* Allow the key to span the four rows */
 }
+
+.footer {
+    color: #62626b;
+    padding: 40px 24px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.btn-class {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #605d8a;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin: 5px;
+}
+
+.points-text {
+    font-size: 30px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #1e1e2e;
+    border: 3px solid #4f46e5;
+    border-radius: 12px;
+    padding: 16px 32px;
+    text-align: center;
+    font-family: 'Courier New', monospace;  /* gives it a digital/game feel */
+    letter-spacing: 4px;
+    width: fit-content;
+    margin: 0 auto;
+    min-width: 120px;
+}
+
+.container {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;  
+}
+
+.container > div {
+    flex: 1;  /* each div fills equal share of width */
+}
