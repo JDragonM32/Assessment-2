@@ -4,6 +4,12 @@ app = Flask(__name__)
 app.secret_key = "my_secret_key";
 
 totalpoints = 0;
+Unit = {
+    "leaders" : "",
+    "battleline": "",
+    "other":"",
+    "totalpoints": 0
+}
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index")
@@ -22,6 +28,18 @@ def reference():
 def calculate(points):
     global totalpoints
     totalpoints = points
+    return redirect(url_for("builder"))
+
+@app.route("/removeunit/<int:points>")
+def removeunit(points):
+    global totalpoints
+    totalpoints = totalpoints - points
+    return redirect(url_for("builder"))
+
+@app.route("/addunit/<int:points>")
+def addunit(points):
+    global totalpoints
+    totalpoints = totalpoints + points
     return redirect(url_for("builder"))
 
 @app.route("/builder")
