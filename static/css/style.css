@@ -50,7 +50,7 @@ img {
     text-align: center;
     width: max-content;
 }
-.pagesplt {
+.pagesplit {
     display: flex;
     align-content: center;
     width: 90%;
