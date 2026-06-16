@@ -8,39 +8,46 @@
         {% block content %}
         <h1>List Builder Tool</h1>
         <p>A tool for making an easy to read Army List</p>
+        <div class="container">
+            <div>
+                <h2>Choose points limit</h2>
+                <div class="points-box">
+                    <a class="btn-class" href="/calculator/500">500pts</a>
+                    <a class="btn-class" href="/calculator/750">750pts</a>
+                    <a class="btn-class" href="/calculator/1000">1000pts</a>
+                    <a class="btn-class" href="/calculator/1500">1500pts</a>
+                    <a class="btn-class" href="/calculator/2000">2000pts</a>
+                </div>
 
-        <p></p>
+                <h2>Leaders</h2>
+                <div class="units-box">
+                <a class="btn-class" href="/calculator/500">-</a><button value="75">Warboss - 75pts</button><a class="btn-class" href="/calculator/500">+</a>
+                <p></p>
+                <a class="btn-class" href="/calculator/500">-</a><button value="65">Weirdboy - 65pts</button><a class="btn-class" href="/calculator/500">+</a>
+                </div>
 
-        <h2>Choose points limit</h2>
-        <div class="points-box">
-        <button value="500">500pts</button><button value="750">750pts</button><button value="1000">1000pts</button>
-        <button value="1250">1250pts</button><button value="1500">1500pts</button>
-        <button value="1750">1750pts</button><button value="2000">2000pts</button>
+                <h2>Battleline</h2>
+                <div class="units-box">
+                <a class="btn-class" href="/calculator/500">-</a><button value="80">Boyz (10) - 80pts</button><a class="btn-class" href="/calculator/500">+</a>
+                <p></p>
+                <a class="btn-class" href="/calculator/500">-</a><button value="170">Boyz (20) - 170pts</button><a class="btn-class" href="/calculator/500">+</a>
+                <p></p>
+                <a class="btn-class" href="/calculator/500">-</a><button value="40">Gretchin (10) - 40pts</button><a class="btn-class" href="/calculator/500">+</a>
+                <p></p>
+                <a class="btn-class" href="/calculator/500">-</a><button value="80">Gretchin (20) - 80pts</button><a class="btn-class" href="/calculator/500">+</a>
+                </div>
+
+                <h2>Other</h2>
+                <div class="units-box">
+                <a class="btn-class" href="/calculator/500">-</a><button value="120">Big Mek Dakkarig - 120pts</button><a class="btn-class" href="/calculator/500">+</a>
+                </div>
+
+                <p></p>
+            </div>
+        <div>
+            <p class="points-text">Total Points : {{ points | default(0) }}</p>
         </div>
-
-        <p></p>
-
-        <h2>Leaders</h2>
-        <div class="units-box">
-        <button value="75">Warboss - 75pts</button>
-        <p></p>
-        <button value="65">Weirdboy - 65pts</button>
         </div>
-
-        <h2>Battleline</h2>
-        <div class="units-box">
-        <button value="80">Boyz (10) - 80pts</button><button value="170">Boyz (20) - 170pts</button>
-        <p></p>
-        <button value="40">Gretchin (10) - 40pts</button><button value="80">Gretchin (20) - 80pts</button>
-        </div>
-
-        <h2>Other</h2>
-        <div class="units-box">
-        <button value="120">Big Mek Dakkarig - 120pts</button>
-        </div>
-
-        <p></p>
-
         <p>each unit limited to 3 copies (6 for Battleline)</p>
         <p>total points of units cannot exceed points limit</p>
         <p>list will be displayed on page</p>
