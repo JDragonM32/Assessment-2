@@ -24,3 +24,9 @@
             }
         });
     });
+
+    function addtolist(buttonid) {
+        const btn = document.getElementById(buttonid);
+        const data = document.getElementById(unitid);
+    }
+    function removefromlist(buttonid) {}

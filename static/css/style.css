@@ -73,6 +73,18 @@ img {
     align-content: end;
     text-align: right;
 }
+.leaderbox {
+    align-content: center;
+    text-align: center;
+}
+.battlelinebox {
+    align-content: center;
+    text-align: center;
+}
+.otherbox{
+    align-content: center;
+    text-align: center;
+}
 .units-box {
     max-width: 50%;
     text-align: left;
@@ -90,11 +102,6 @@ img {
     width: fit-content;
 }
 
-.outputbox {
-    display: flex;
-    width: 100%;
-    height: 75%;
-}
 .pointsbar {
     background: #04AA6D;
     text-align: right;
