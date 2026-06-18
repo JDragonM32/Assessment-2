@@ -2,58 +2,13 @@ from flask import Flask, render_template, url_for, request, redirect
 
 app = Flask(__name__)
 
-totalpoints = 0;
-Unit = {
-    "leaders" : "",
-    "battleline": "",
-    "other":"",
-    "totalpoints": 0
-}
+totalpoints = 0
+currentpoints = 0
 
-@app.route("/", methods=["GET", "POST"])
-@app.route("/index")
-def index():
-    return render_template('index.html')
-
-@app.route("/user")
-def user():
-    return render_template('user.html')
-
-@app.route("/reference")
-def reference():
-    return render_template('reference.html')
-
-@app.route("/calculate/<int:points>")
-def calculate(points):
-    global totalpoints
-    totalpoints = points
-    return redirect(url_for("builder"))
-
-@app.route("/removeunit/<leader>")
-def removeunit(leader):
-    global totalpoints
-    leader_data = Leaders[leader]
-    units["leaders"] = leader_data
-    totalpoints = totalpoints + units["leaders"]["points"]
-    return redirect(url_for("builder"))
-
-@app.route("/addunit/<leader>")
-def addunit(leader):
-    global totalpoints
-    leader_data = Leaders[leader]
-    units["leaders"] = leader_data
-    totalpoints = totalpoints - units["leaders"]["points"]
-    return redirect(url_for("builder"))
-
-@app.route("/builder")
-def builder():
-    return render_template("builder.html", points=totalpoints)
-
-#units
 units = {
-    "leaders":"",
-    "battleline":"",
-    "other":""
+    "leaders":{},
+    "battleline":{},
+    "other":{}
 }
 
 Leaders = {
@@ -70,6 +25,76 @@ Battleline = {
 Other = {
     "Dakkarig": {"name": "Big Mek Dakkarig", "num": "1", "points": 120}
 }
+
+@app.route("/", methods=["GET", "POST"])
+@app.route("/index")
+def index():
+    return render_template('index.html')
+
+@app.route("/user")
+def user():
+    return render_template('user.html')
+
+@app.route("/reference")
+def reference():
+    return render_template('reference.html')
+
+@app.route("/setpoints/<int:points>")
+def calculate(points):
+    global totalpoints
+    global currentpoints
+    totalpoints = points
+    currentpoints = totalpoints
+    global units
+    units = {
+        "leaders": {},
+        "battleline": {},
+        "other": {}
+    }
+    return redirect(url_for("builder"))
+
+@app.route("/removeunit/<leader>")
+def removeunit(leader):
+    global totalpoints
+    leader_data = Leaders[leader]
+    units["leaders"] = leader_data
+    totalpoints = totalpoints + units["leaders"]["points"]
+    return redirect(url_for("builder"))
+
+@app.route("/addunit/<leader>")
+def addunit(leader):
+    leader_data = Leaders[leader]
+    
+    if leader in units["leaders"]:
+        units["leaders"][leader][1] += 1
+    else:
+        units["leaders"][leader] = [leader_data, 1]
+
+    calculate_points()
+
+    return redirect(url_for("builder"))
+
+@app.route("/builder")
+def builder():
+    return render_template("builder.html", points=currentpoints)
+
+def calculate_points():
+    global totalpoints
+    global currentpoints
+    
+    battlelinepoints = 0
+    otherpoints = 0
+    leaderpoints = 0
+
+    for unit in units:
+        for category, (data, count) in units[unit].items():
+            print(count)
+            leaderpoints = data["points"] * count
+            print(leaderpoints)
+
+    currentpoints = totalpoints - (leaderpoints + battlelinepoints + otherpoints)
+
+
 
 
 
@@ -94,3 +119,4 @@ Other = {
 #         except Exception as e:
 #             result = "error"
 #     return render_template('calculator.html', result=result)
+
