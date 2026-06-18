@@ -34,39 +34,39 @@
             <div class="page leftpage">
                 <h3>Leaders</h3>
                     <div class="units-box">
-                        <button id="warboss-">-</button>
+                        <button id="warboss-" onclick="removefromlist('warboss-', 'Warboss')">-</button>
                         <button class="btnunit">Warboss - 75pts</button>
-                        <button id="warboss+">+</button>
+                        <button id="warboss+" onclick="addtolist('warboss+', 'Warboss')">+</button>
                         <p></p>
-                        <button id="weirdboy-">-</button>
+                        <button id="weirdboy-" onclick="removefromlist('weirdboy-', 'Weirdboy')">-</button>
                         <button class="btnunit">Weirdboy - 65pts</button>
-                        <button id="weirdboy+">+</button>
+                        <button id="weirdboy+" onclick="addtolist('weirdboy+', 'Weirdboy')">+</button>
                     </div>
 
                 <h3>Battleline</h3>
                     <div class="units-box">
-                        <button id="boyz10-">-</button>
+                        <button id="boyz10-" onclick="removefromlist('boyz10-', 'Boyz10')">-</button>
                         <button class="btnunit">Boyz (10) - 80pts</button>
-                        <button id="boyz10+">+</button>
+                        <button id="boyz10+" onclick="addtolist('boyz10+', 'Boyz10')">+</button>
                         <p></p>
-                        <button id="boyz20-">-</button>
+                        <button id="boyz20-" onclick="removefromlist('boyz20-', 'Boyz20')">-</button>
                         <button class="btnunit">Boyz (20) - 170pts</button>
-                        <button id="boyz20+">+</button>
+                        <button id="boyz20+" onclick="addtolist('boyz20+', 'Boyz20')">+</button>
                         <p></p>
-                        <button id="gretchin10-">-</button>
+                        <button id="gretchin10-" onclick="removefromlist('gretchin10-', 'Gretchin10')">-</button>
                         <button class="btnunit">Gretchin (10) - 40pts</button>
-                        <button id="gretchin10+">+</button>
+                        <button id="gretchin10+" onclick="addtolist('gretchin10+', 'Gretchin10')">+</button>
                         <p></p>
-                        <button id="gretchin20-">-</button>
+                        <button id="gretchin20-" onclick="removefromlist('gretchin20-', 'Gretchin20')">-</button>
                         <button class="btnunit">Gretchin (20) - 80pts</button>
-                        <button id="gretchin20+">+</button>
+                        <button id="gretchin20+" onclick="addtolist('gretchin20+', 'Gretchin20')">+</button>
                     </div>
 
                 <h3>Other</h3>
                     <div class="units-box">
-                        <button id="dakkarig-">-</button>
+                        <button id="dakkarig-" onclick="removefromlist('dakkarig-', 'Dakkarig')">-</button>
                         <button class="btnunit">Big Mek Dakkarig - 120pts</button>
-                        <button id="dakkarig+">+</button>
+                        <button id="dakkarig+" onclick="addtolist('dakkarig+', 'Dakkarig')">+</button>
                     </div>
             </div>
 
@@ -94,6 +94,15 @@
                         </div>
                     <br>
             </div>
+        </div>
+        <div>
+            <unit id="Warboss">
+            <unit id="Weirdboy">
+            <unit id="Boyz10">
+            <unit id="Boyz20">
+            <unit id="Gretchin10">
+            <unit id="Gretchin20">
+            <unit id="Dakkarig">
         </div>
         {% endblock %}
     </body>

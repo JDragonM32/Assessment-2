@@ -25,8 +25,11 @@
         });
     });
 
-    function addtolist(buttonid) {
+    function addtolist(buttonid, unitid) {
         const btn = document.getElementById(buttonid);
-        const data = document.getElementById(unitid);
+        const unit = document.getElementById(unitid);
     }
-    function removefromlist(buttonid) {}
+    function removefromlist(buttonid, unitid) {
+        const btn = document.getElementById(buttonid);
+        const unit = document.getElementById(unitid);
+    }
