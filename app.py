@@ -29,21 +29,49 @@ def calculate(points):
     totalpoints = points
     return redirect(url_for("builder"))
 
-@app.route("/removeunit/<int:points>")
-def removeunit(points):
+@app.route("/removeunit/<leader>")
+def removeunit(leader):
     global totalpoints
-    totalpoints = totalpoints + points
+    leader_data = Leaders[leader]
+    units["leaders"] = leader_data
+    totalpoints = totalpoints + units["leaders"]["points"]
     return redirect(url_for("builder"))
 
-@app.route("/addunit/<int:points>")
-def addunit(points):
+@app.route("/addunit/<leader>")
+def addunit(leader):
     global totalpoints
-    totalpoints = totalpoints - points
+    leader_data = Leaders[leader]
+    units["leaders"] = leader_data
+    totalpoints = totalpoints - units["leaders"]["points"]
     return redirect(url_for("builder"))
 
 @app.route("/builder")
 def builder():
     return render_template("builder.html", points=totalpoints)
+
+#units
+units = {
+    "leaders":"",
+    "battleline":"",
+    "other":""
+}
+
+Leaders = {
+    "Warboss": {"name": "Warboss", "num": "1", "points": 75},
+    "Weirdboy": {"name": "Weirdboy", "num": "1", "points": 65}
+}
+
+Battleline = {
+    "Boyz10": {"name": "Boyz", "num": "10", "points": 80},
+    "Boyz20": {"name": "Boyz", "num": "20", "points": 170},
+    "Gretchin10": {"name": "Gretchin", "num": "10", "points": 40},
+    "Gretchin20": {"name": "Gretchin", "num": "20", "points": 80}
+}
+Other = {
+    "Dakkarig": {"name": "Big Mek Dakkarig", "num": "1", "points": 120}
+}
+
+
 
 # @app.route("/builder")
 # def builder():
