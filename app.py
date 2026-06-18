@@ -1,7 +1,6 @@
-from flask import Flask, render_template, url_for, request, redirect, session
+from flask import Flask, render_template, url_for, request, redirect
 
 app = Flask(__name__)
-app.secret_key = "my_secret_key";
 
 totalpoints = 0;
 Unit = {
@@ -33,26 +32,29 @@ def calculate(points):
 @app.route("/removeunit/<int:points>")
 def removeunit(points):
     global totalpoints
-    totalpoints = totalpoints - points
+    totalpoints = totalpoints + points
     return redirect(url_for("builder"))
 
 @app.route("/addunit/<int:points>")
 def addunit(points):
     global totalpoints
-    totalpoints = totalpoints + points
+    totalpoints = totalpoints - points
     return redirect(url_for("builder"))
 
 @app.route("/builder")
 def builder():
     return render_template("builder.html", points=totalpoints)
 
-    # if request.method == "POST":
-    #     try:
-    #         expression = request.form["display"]
-    #         result = eval(expression)
-    #     except Exception as e:
-    #         result = "error"
-    # return render_template('builder.html', result=result)
+# @app.route("/builder")
+# def builder():
+#     result = ''
+#     if request.method == "POST":
+#         try:
+#             expression = request.form["display"]
+#             result = eval(expression)
+#         except Exception as e:
+#             result = "error"
+#     return render_template('builder.html', result=result)
 
 # @app.route("/calculator", methods=["GET", "POST"])
 # def calculator():
