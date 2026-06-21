@@ -42,9 +42,9 @@ def calculator():
 Warboss = {"name": "Warboss", "num": "1", "points": 75}
 Weirdboy = {"name": "Weirdboy", "num": "1", "points": 65}
 #Battleline
-Boyz10 = {"name": "Boyz", "num": "10", "points": 80}
-Boyz20 = {"name": "Boyz", "num": "20", "points": 170}
-Gretchin10 = {"name": "Gretchin", "num": "10", "points": 40}
+Boyz10 = {"name": "Boyz", "num": "10", "points": 75}
+Boyz20 = {"name": "Boyz", "num": "20", "points": 150}
+Gretchin10 = {"name": "Gretchin", "num": "10", "points": 45}
 Gretchin20 = {"name": "Gretchin", "num": "20", "points": 80}
 #Other
-Dakkarig = {"name": "Big Mek Dakkarig", "num": "1", "points": 120}
+Dakkarig = {"name": "Big Mek Dakkarig", "num": "1", "points": 100}
