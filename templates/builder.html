@@ -16,13 +16,13 @@
 
         <h2>Points Limit</h2>
         <div class="points-box">
-            <button class="pointsbtn">500pts</button>
-            <button class="pointsbtn">750pts</button>
-            <button class="pointsbtn">1000pts</button>
-            <button class="pointsbtn">1250pts</button>
-            <button class="pointsbtn">1500pts</button>
-            <button class="pointsbtn">1750pts</button>
-            <button class="pointsbtn">2000pts</button>
+            <a class="btn-class" href="/setpoints/500"> 500 </a>
+            <a class="btn-class" href="/setpoints/750"> 750 </a>
+            <a class="btn-class" href="/setpoints/1000"> 1000 </a>
+            <a class="btn-class" href="/setpoints/1250"> 1250 </a>
+            <a class="btn-class" href="/setpoints/1500"> 1500 </a>
+            <a class="btn-class" href="/setpoints/1750"> 1750 </a>
+            <a class="btn-class" href="/setpoints/2000"> 2000 </a>
         </div>
 
         <p></p>
@@ -34,45 +34,55 @@
             <div class="page leftpage">
                 <h3>Leaders</h3>
                     <div class="units-box">
-                        <button id="warboss-" onclick="removefromlist('warboss-', 'Warboss')">-</button>
-                        <button class="btnunit">Warboss - 75pts</button>
-                        <button id="warboss+" onclick="addtolist('warboss+', 'Warboss')">+</button>
-                        <p></p>
-                        <button id="weirdboy-" onclick="removefromlist('weirdboy-', 'Weirdboy')">-</button>
-                        <button class="btnunit">Weirdboy - 65pts</button>
-                        <button id="weirdboy+" onclick="addtolist('weirdboy+', 'Weirdboy')">+</button>
+                        <div class="units-btns">
+                            <a class="btn-class" href="/removeunit/Warboss"> - </a>
+                            <p class="btn-class">Warboss - 75pts</p>
+                            <a class="btn-class" href="/addunit/Warboss"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeunit/Weirdboy"> - </a>
+                            <p class="btn-class">Weirdboy - 65pts</p>
+                            <a class="btn-class" href="/addunit/Weirdboy"> + </a>
+                        </div>
                     </div>
 
                 <h3>Battleline</h3>
                     <div class="units-box">
-                        <button id="boyz10-" onclick="removefromlist('boyz10-', 'Boyz10')">-</button>
-                        <button class="btnunit">Boyz (10) - 75pts</button>
-                        <button id="boyz10+" onclick="addtolist('boyz10+', 'Boyz10')">+</button>
-                        <p></p>
-                        <button id="boyz20-" onclick="removefromlist('boyz20-', 'Boyz20')">-</button>
-                        <button class="btnunit">Boyz (20) - 150pts</button>
-                        <button id="boyz20+" onclick="addtolist('boyz20+', 'Boyz20')">+</button>
-                        <p></p>
-                        <button id="gretchin10-" onclick="removefromlist('gretchin10-', 'Gretchin10')">-</button>
-                        <button class="btnunit">Gretchin (10) - 45pts</button>
-                        <button id="gretchin10+" onclick="addtolist('gretchin10+', 'Gretchin10')">+</button>
-                        <p></p>
-                        <button id="gretchin20-" onclick="removefromlist('gretchin20-', 'Gretchin20')">-</button>
-                        <button class="btnunit">Gretchin (20) - 80pts</button>
-                        <button id="gretchin20+" onclick="addtolist('gretchin20+', 'Gretchin20')">+</button>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeunit/Boyz10"> - </a>
+                            <p class="btn-class">Boyz (10) - 75pts</p>
+                            <a class="btn-class" href="/addunit/Boyz10"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeunit/Boyz20"> - </a>
+                            <p class="btn-class">Boyz (20) - 150pts</p>
+                            <a class="btn-class" href="/addunit/Boyz20"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeunit/Gretchin10"> - </a>
+                            <p class="btn-class">Gretchin (10) - 45pts</p>
+                            <a class="btn-class" href="/addunit/Gretchin10"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeunit/Gretchin20"> - </a>
+                            <p class="btn-class">Gretchin (20) - 80pts</p>
+                            <a class="btn-class" href="/addunit/Gretchin20"> + </a>
+                        </div>
                     </div>
 
                 <h3>Other</h3>
                     <div class="units-box">
-                        <button id="dakkarig-" onclick="removefromlist('dakkarig-', 'Dakkarig')">-</button>
-                        <button class="btnunit">Big Mek Dakkarig - 100pts</button>
-                        <button id="dakkarig+" onclick="addtolist('dakkarig+', 'Dakkarig')">+</button>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeunit/Dakkarig"> - </a>
+                            <p class="btn-class">Big Mek Dakkarig - 100pts</p>
+                            <a class="btn-class" href="/addunit/Dakkarig"> + </a>
+                        </div>
                     </div>
             </div>
 
             <div class="page rightpage">
-                <div class="pointsbar">
-                    <p1>0/X Points</p1>
+                <div>
+                    <p class="points-text">Total Points: {{ points | default(0) }}</p>
                 </div>
                     <br>
                     <p2><b>Leaders</b></p2>
