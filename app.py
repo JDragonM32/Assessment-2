@@ -50,32 +50,32 @@ def calculate(points):
     }
     return redirect(url_for("builder"))
 
-@app.route("/removeunit/<leader>")
-def removeunit(leader):
+@app.route("/removeleader/<leader>")
+def removeleader(leader):
     global totalpoints
     leader_data = Leaders[leader]
     units["leaders"] = leader_data
     totalpoints = totalpoints + units["leaders"]["points"]
     return redirect(url_for("builder"))
 
-@app.route("/removeunit/<battleline>")
-def removeunit(battleline):
+@app.route("/removebattleline/<battleline>")
+def removebattleline(battleline):
     global totalpoints
-    leader_data = Battleline[battleline]
+    battleline_data = Battleline[battleline]
     units["battleline"] = battleline_data
     totalpoints = totalpoints + units["battleline"]["points"]
     return redirect(url_for("builder"))
 
-@app.route("/removeunit/<other>")
-def removeunit(other):
+@app.route("/removeother/<other>")
+def removeother(other):
     global totalpoints
-    leader_data = Other[other]
+    other_data = Other[other]
     units["other"] = other_data
     totalpoints = totalpoints + units["other"]["points"]
     return redirect(url_for("builder"))
 
-@app.route("/addunit/<leader>")
-def addunit(leader):
+@app.route("/addleader/<leader>")
+def addleader(leader):
     leader_data = Leaders[leader]
     if leader in units["leaders"]:
         units["leaders"][leader][1] += 1
@@ -84,8 +84,8 @@ def addunit(leader):
     calculate_points()
     return redirect(url_for("builder"))
 
-@app.route("/addunit/<battleline>")
-def addunit(battleline):
+@app.route("/addbattleline/<battleline>")
+def addbattleline(battleline):
     battleline_data = Battleline[battleline]
     if battleline in units["battleline"]:
         units["battleline"][battleline][1] += 1
@@ -94,8 +94,8 @@ def addunit(battleline):
     calculate_points()
     return redirect(url_for("builder"))
 
-@app.route("/addunit/<other>")
-def addunit(other):
+@app.route("/addother/<other>")
+def addother(other):
     other_data = Other[other]
     if other in units["other"]:
         units["other"][other][1] += 1
@@ -116,6 +116,7 @@ def builder():
     return render_template('builder.html', points=currentpoints)
 
 def calculate_points():
+    print(units)
     global totalpoints
     global currentpoints
     battlelinepoints = 0
@@ -123,8 +124,8 @@ def calculate_points():
     leaderpoints = 0
     for unit in units:
         for category, (data, count) in units[unit].items():
-            print(count)
             leaderpoints = data["points"] * count
-            print(leaderpoints)
+            #print(category, data, count)
+            
 
     currentpoints = totalpoints - (leaderpoints + battlelinepoints + otherpoints)
