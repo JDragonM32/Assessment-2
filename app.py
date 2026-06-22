@@ -53,22 +53,79 @@ def calculate(points):
     }
     return redirect(url_for("builder"))
 
-@app.route("/removeunit/<leader>")
-def removeunit(leader):
-    global totalpoints
+@app.route("/removeleader/<leader>")
+def removeleader(leader):
     leader_data = Leaders[leader]
-    units["leaders"] = leader_data
-    totalpoints = totalpoints + units["leaders"]["points"]
+    
+    if leader in units["leaders"]:
+        units["leaders"][leader][1] -= 1
+    else:
+        units["leaders"][leader] = [leader_data, 1]
+
+    calculate_points()
+
     return redirect(url_for("builder"))
 
-@app.route("/addunit/<leader>")
-def addunit(leader):
+@app.route("/addleader/<leader>")
+def addleader(leader):
     leader_data = Leaders[leader]
     
     if leader in units["leaders"]:
         units["leaders"][leader][1] += 1
     else:
         units["leaders"][leader] = [leader_data, 1]
+
+    calculate_points()
+
+    return redirect(url_for("builder"))
+
+@app.route("/removebattleline/<battleline>")
+def removebattleline(battleline):
+    battleline_data = Battleline[battleline]
+    
+    if battleline in units["battleline"]:
+        units["battleline"][battleline][1] -= 1
+    else:
+        units["battleline"][battleline] = [battleline_data, 1]
+
+    calculate_points()
+
+    return redirect(url_for("builder"))
+
+@app.route("/addbattleline/<battleline>")
+def addbattleline(battleline):
+    battleline_data = Battleline[battleline]
+    
+    if battleline in units["battleline"]:
+        units["battleline"][battleline][1] += 1
+    else:
+        units["battleline"][battleline] = [battleline_data, 1]
+
+    calculate_points()
+
+    return redirect(url_for("builder"))
+
+@app.route("/removeother/<other>")
+def removeother(other):
+    other_data = Other[other]
+    
+    if other in units["other"]:
+        units["other"][other][1] -= 1
+    else:
+        units["other"][other] = [other_data, 1]
+
+    calculate_points()
+
+    return redirect(url_for("builder"))
+
+@app.route("/addother/<other>")
+def addother(other):
+    other_data = Other[other]
+    
+    if other in units["other"]:
+        units["other"][other][1] += 1
+    else:
+        units["other"][other] = [other_data, 1]
 
     calculate_points()
 
