@@ -18,8 +18,8 @@ Leaders = {
     "Weirdboy": {"name": "Weirdboy", "num": "1", "points": 65}
 }
 Battleline = {
-    "Boyz10": {"name": "Boyz", "num": "10", "points": 75},
-    "Boyz20": {"name": "Boyz", "num": "20", "points": 150},
+    "Boyz10": {"name": "Boyz (10)", "num": "10", "points": 75},
+    "Boyz20": {"name": "Boyz (20)", "num": "20", "points": 150},
     "Gretchin10": {"name": "Gretchin", "num": "10", "points": 45},
     "Gretchin20": {"name": "Gretchin", "num": "20", "points": 80}
 }
@@ -125,6 +125,8 @@ def calculate_points():
     for unit in units:
         for category, (data, count) in units[unit].items():
             leaderpoints = data["points"] * count
+            battlelinepoints = data["points"] * count
+            otherpoints = data["points"] * count
             #print(category, data, count)
             
 
