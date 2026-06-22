@@ -81,42 +81,12 @@ def builder():
 def calculate_points():
     global totalpoints
     global currentpoints
-    
-    battlelinepoints = 0
-    otherpoints = 0
-    leaderpoints = 0
-
-    for unit in units:
-        for category, (data, count) in units[unit].items():
-            print(count)
-            leaderpoints = data["points"] * count
-            print(leaderpoints)
-
-    currentpoints = totalpoints - (leaderpoints + battlelinepoints + otherpoints)
-
-
-
-
-
-# @app.route("/builder")
-# def builder():
-#     result = ''
-#     if request.method == "POST":
-#         try:
-#             expression = request.form["display"]
-#             result = eval(expression)
-#         except Exception as e:
-#             result = "error"
-#     return render_template('builder.html', result=result)
-
-# @app.route("/calculator", methods=["GET", "POST"])
-# def calculator():
-#     result = ''
-#     if request.method == "POST":
-#         try:
-#             expression = request.form["display"]
-#             result = eval(expression)
-#         except Exception as e:
-#             result = "error"
-#     return render_template('calculator.html', result=result)
+    total = 0
+    for category in units.values():
+        for unit_data in category.values():
+            unit = unit_data[0]
+            count = unit_data[1]
+            total += unit['points'] * count
+    print(total)
+    currentpoints = totalpoints - total
 
