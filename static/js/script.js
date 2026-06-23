@@ -55,3 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+    });
+
+    function addtolist(buttonid, unitid) {
+        const btn = document.getElementById(buttonid);
+        const unit = document.getElementById(unitid);
+    }
+    function removefromlist(buttonid, unitid) {
+        const btn = document.getElementById(buttonid);
+        const unit = document.getElementById(unitid);
+    }

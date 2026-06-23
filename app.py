@@ -1,4 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
+import sqlite3
+conn = sqlite3.connect('database.db')
+cursor = conn.cursor()
 
 app = Flask(__name__)
 
@@ -30,10 +33,6 @@ Other = {
 @app.route("/index")
 def index():
     return render_template('index.html')
-
-@app.route("/user")
-def user():
-    return render_template('user.html')
 
 @app.route("/reference")
 def reference():
