@@ -23,74 +23,102 @@
             <a class="btn-class" href="/setpoints/1500"> 1500 </a>
             <a class="btn-class" href="/setpoints/1750"> 1750 </a>
             <a class="btn-class" href="/setpoints/2000"> 2000 </a>
-            <a class="btn-class" href="/setpoints/500"> 500 </a>
-            <a class="btn-class" href="/setpoints/750"> 750 </a>
-            <a class="btn-class" href="/setpoints/1000"> 1000 </a>
-            <a class="btn-class" href="/setpoints/1250"> 1250 </a>
-            <a class="btn-class" href="/setpoints/1500"> 1500 </a>
-            <a class="btn-class" href="/setpoints/1750"> 1750 </a>
-            <a class="btn-class" href="/setpoints/2000"> 2000 </a>
         </div>
 
         <p></p>
 
         <p>each unit can only be selected upto 3 times (or 6 for Battleline)</p>
         <p>total points value of units must not exceed your points limit</p>
-        <div class="container">
-            <div>
+
+        <div class="pagesplit">
+            <div class="page leftpage">
                 <h3>Leaders</h3>
-                <div class="units-box">
-                    <div class="unit-btns">
-                        <a class="btn-class" href="/removeleader/Warboss"> - </a>
-                        <p class="btn-class">Warboss - 75pts</p>
-                        <a class="btn-class" href="/addleader/Warboss"> + </a>
+                    <div class="units-box">
+                        <div class="units-btns">
+                            <a class="btn-class" href="/removeleader/Warboss"> - </a>
+                            <p class="btn-class">Warboss - 75pts</p>
+                            <a class="btn-class" href="/addleader/Warboss"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeleader/Weirdboy"> - </a>
+                            <p class="btn-class">Weirdboy - 65pts</p>
+                            <a class="btn-class" href="/addleader/Weirdboy"> + </a>
+                        </div>
                     </div>
-                    <div class="unit-btns">
-                        <a class="btn-class" href="/removeleader/Weirdboy"> - </a>
-                        <p class="btn-class">Weirdboy - 65pts</p>
-                        <a class="btn-class" href="/addleader/Weirdboy"> + </a>
-                    </div>
-                </div>
+
                 <h3>Battleline</h3>
-                <div class="units-box">
-                    <div class="unit-btns">
-                        <a class="btn-class" href="/removebattleline/Boyz10"> - </a>
-                        <p class="btn-class">Boyz (10) - 80pts</p>
-                        <a class="btn-class" href="/addbattleline/Boyz10"> + </a>
+                    <div class="units-box">
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removebattleline/Boyz10"> - </a>
+                            <p class="btn-class">Boyz (10) - 75pts</p>
+                            <a class="btn-class" href="/addbattleline/Boyz10"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removebattleline/Boyz20"> - </a>
+                            <p class="btn-class">Boyz (20) - 150pts</p>
+                            <a class="btn-class" href="/addbattleline/Boyz20"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removebattleline/Gretchin10"> - </a>
+                            <p class="btn-class">Gretchin (10) - 45pts</p>
+                            <a class="btn-class" href="/addbattleline/Gretchin10"> + </a>
+                        </div>
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removebattleline/Gretchin20"> - </a>
+                            <p class="btn-class">Gretchin (20) - 80pts</p>
+                            <a class="btn-class" href="/addbattleline/Gretchin20"> + </a>
+                        </div>
                     </div>
-                    <div class="unit-btns">
-                        <a class="btn-class" href="/removebattleline/Boyz20"> - </a>
-                        <p class="btn-class">Boyz (20) - 170pts</p>
-                        <a class="btn-class" href="/addbattleline/Boyz20"> + </a>
-                    </div>
-                    <div class="unit-btns">
-                        <a class="btn-class" href="/removebattleline/Gretchin10"> - </a>
-                        <p class="btn-class">Gretchin (10) - 40pts</p>
-                        <a class="btn-class" href="/addbattleline/Gretchin10"> + </a>
-                    </div>
-                    <div class="unit-btns">
-                        <a class="btn-class" href="/removebattleline/Gretchin20"> - </a>
-                        <p class="btn-class">Gretchin (20) - 80pts</p>
-                        <a class="btn-class" href="/addbattleline/Gretchin20"> + </a>
-                    </div>
-                </div>
+
                 <h3>Other</h3>
-                <div class="units-box">
-                    <div class="unit-btns">
-                        <a class="btn-class" href="/removeother/Dakkarig"> - </a>
-                        <p class="btn-class">Big Mek Dakkarig - 120pts</p>
-                        <a class="btn-class" href="/addother/Dakkarig"> + </a>
+                    <div class="units-box">
+                        <div class="units-btn">
+                            <a class="btn-class" href="/removeother/Dakkarig"> - </a>
+                            <p class="btn-class">Big Mek Dakkarig - 100pts</p>
+                            <a class="btn-class" href="/addother/Dakkarig"> + </a>
+                        </div>
                     </div>
-                    <!-- <button class="btnminus">-</button>
-                    <button>Big Mek Dakkarig - 120pts</button>
-                    <button class="btnplus">+</button> -->
-                </div>
             </div>
-            <div>
-                <p class="points-text">Total Points : {{ points | default(0) }}</p>
+
+            <div class="page rightpage">
+                <div>
+                    <p class="points-text">Total Points: {{ points | default(0) }}</p>
+                </div>
+                    <br>
+                    <h2><b>Leaders</b></h2>
+                        <div class="leaderbox">
+                            {% for name, data in leader_list.items() %}
+                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                            {% endfor %}
+                        </div>
+                    <br>
+                    <h2><b>Battleline</b></h2>
+                        <div class="battlelinebox">
+                            {% for name, data in battleline_list.items() %}
+                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                            {% endfor %}
+                            <br>
+                        </div>
+                    <br>
+                    <h2><b>Other</b></h2>
+                        <div class="otherbox">
+                            {% for name, data in other_list.items() %}
+                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                            {% endfor %}
+                            <br>
+                        </div>
+                    <br>
             </div>
         </div>
-        <p></p>
+        <div>
+            <unit id="Warboss">
+            <unit id="Weirdboy">
+            <unit id="Boyz10">
+            <unit id="Boyz20">
+            <unit id="Gretchin10">
+            <unit id="Gretchin20">
+            <unit id="Dakkarig">
+        </div>
         {% endblock %}
     </body>
 </html>

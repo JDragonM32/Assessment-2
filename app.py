@@ -20,13 +20,13 @@ Leader = {
 }
 
 Battleline = {
-    "Boyz10": {"name": "Boyz", "num": "10", "points": 80},
-    "Boyz20": {"name": "Boyz", "num": "20", "points": 170},
-    "Gretchin10": {"name": "Gretchin", "num": "10", "points": 40},
+    "Boyz10": {"name": "Boyz (10)", "num": "10", "points": 75},
+    "Boyz20": {"name": "Boyz (20)", "num": "20", "points": 150},
+    "Gretchin10": {"name": "Gretchin", "num": "10", "points": 45},
     "Gretchin20": {"name": "Gretchin", "num": "20", "points": 80}
 }
 Other = {
-    "Dakkarig": {"name": "Big Mek Dakkarig", "num": "1", "points": 120}
+    "Dakkarig": {"name": "Big Mek Dakkarig", "num": "1", "points": 100}
 }
 
 @app.route("/", methods=["GET", "POST"])
@@ -37,6 +37,10 @@ def index():
 @app.route("/reference")
 def reference():
     return render_template('reference.html')
+
+@app.route("/user")
+def user():
+    return render_template('user.html')
 
 @app.route("/setpoints/<int:points>")
 def calculate(points):
@@ -121,7 +125,7 @@ def addother(other):
 
 @app.route("/builder")
 def builder():
-    return render_template("builder.html", points=currentpoints)
+    return render_template("builder.html", points=currentpoints, leader_list=units["leader"], battleline_list=units["battleline"], other_list=units["other"] )
 
 def check_points(points_to_add):
     global currentpoints
