@@ -52,26 +52,32 @@ def calculate(points):
 
 @app.route("/removeleader/<leader>")
 def removeleader(leader):
-    global totalpoints
     leader_data = Leaders[leader]
-    units["leaders"] = leader_data
-    totalpoints = totalpoints + units["leaders"]["points"]
+    if leader in units["leaders"]:
+        units["leaders"][leader][1] -= 1
+    else:
+        units["leaders"][leader] = [leader_data, 1]
+    calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/removebattleline/<battleline>")
 def removebattleline(battleline):
-    global totalpoints
     battleline_data = Battleline[battleline]
-    units["battleline"] = battleline_data
-    totalpoints = totalpoints + units["battleline"]["points"]
+    if battleline in units["battleline"]:
+        units["battleline"][battleline][1] -= 1
+    else:
+        units["battleline"][battleline] = [battleline_data, 1]
+    calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/removeother/<other>")
 def removeother(other):
-    global totalpoints
     other_data = Other[other]
-    units["other"] = other_data
-    totalpoints = totalpoints + units["other"]["points"]
+    if other in units["other"]:
+        units["other"][other][1] -= 1
+    else:
+        units["other"][other] = [other_data, 1]
+    calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/addleader/<leader>")
@@ -106,28 +112,16 @@ def addother(other):
 
 @app.route("/builder")
 def builder():
-    result = ''
-    if request.method == "POST":
-        try:
-            expression = request.form["display"]
-            result = eval(expression)
-        except Exception as e:
-            result = "error"
     return render_template('builder.html', points=currentpoints)
 
 def calculate_points():
-    print(units)
     global totalpoints
     global currentpoints
-    battlelinepoints = 0
-    otherpoints = 0
-    leaderpoints = 0
-    for unit in units:
-        for category, (data, count) in units[unit].items():
-            leaderpoints = data["points"] * count
-            battlelinepoints = data["points"] * count
-            otherpoints = data["points"] * count
-            #print(category, data, count)
-            
-
-    currentpoints = totalpoints - (leaderpoints + battlelinepoints + otherpoints)
+    total = 0
+    for category in units.values():
+        for unit_data in category.values():
+            unit = unit_data[0]
+            count = unit_data[1]
+            total += unit['points'] * count
+    print(total)
+    currentpoints = totalpoints - total
