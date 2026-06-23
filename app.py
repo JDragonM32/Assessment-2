@@ -1,7 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
-import sqlite3
-conn = sqlite3.connect('database.db')
-cursor = conn.cursor()
+import mysql.connector
 
 app = Flask(__name__)
 
@@ -125,3 +123,8 @@ def calculate_points():
             total += unit['points'] * count
     print(total)
     currentpoints = totalpoints - total
+    #as a unit is added, it should be displayed on the right
+    #the points cost of all units added should be calculated and display in the 'Points bar'
+    #'removeunit' should not work if none of that unit has been added
+    #each unit should only be able to be added upto 3 times (6 for battleline)
+    #chosen points limit should not be able to be exceeded
