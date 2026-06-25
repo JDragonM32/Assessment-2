@@ -2,6 +2,16 @@
         const img = document.getElementById(imageid);
         const btn = document.getElementById(buttonid);
 
+        if(btn.classList.contains('clicked')){
+            btn.classList.remove('clicked');
+            img.style.display = 'none';
+        }
+        else{
+            document.querySelectorAll('img').forEach(img => {
+                img.style.display = 'none';
+            });
+        }
+
         document.querySelectorAll('img').forEach(img => {
             img.style.display = 'none';
         });
