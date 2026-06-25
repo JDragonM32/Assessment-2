@@ -8,10 +8,8 @@
     <body>
       {% extends "base.html" %}
       {% block content %}
-      <title>Hello from Flask</title>
-      <h1>Hello, World!</h1>
-      <button>click here</button>
-      <p></p>
+      <title>Home</title>
+        <img src="{{ url_for('static', filename='artwork.jpg') }}" alt="Orks Artwork" width="100%">
       {% endblock %}
     </body>
 </html>

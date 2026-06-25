@@ -82,27 +82,27 @@
 
             <div class="page rightpage">
                 <div>
-                    <p class="points-text">Total Points: {{ points | default(0) }}</p>
+                    <p class="points-text">Points Remaining: {{ points | default(0) }}</p>
                 </div>
                     <br>
                     <p2><b>Leaders</b></p2>
                         <div class="leaderbox">
                             {% for name, data in leader_list.items() %}
-                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                                <p>{{data[0]["num"]}} - {{ name }} - {{data[0]["points"] * data[1] }} pts</p>
                             {% endfor %}
                         </div>
                     <br>
                     <p2><b>Battleline</b></p2>
                         <div class="battlelinebox">
                             {% for name, data in battleline_list.items() %}
-                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                                <p>{{data[0]["num"]}} - {{ name }} - {{data[0]["points"] * data[1] }} pts</p>
                             {% endfor %}
                         </div>
                     <br>
                     <p2><b>Other</b></p2>
                         <div class="otherbox">
                             {% for name, data in other_list.items() %}
-                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                                <p>{{data[0]["num"]}} - {{ name }} - {{data[0]["points"] * data[1] }} pts</p>
                             {% endfor %}
                         </div>
                     <br>

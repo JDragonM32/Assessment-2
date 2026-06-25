@@ -13,13 +13,13 @@ units = {
     "battleline":{},
     "other":{}
 }
-Leaders = {
+Leader = {
     "Warboss": {"name": "Warboss", "num": "1", "points": 75},
     "Weirdboy": {"name": "Weirdboy", "num": "1", "points": 65}
 }
 Battleline = {
-    "Boyz10": {"name": "Boyz (10)", "num": "10", "points": 75},
-    "Boyz20": {"name": "Boyz (20)", "num": "20", "points": 150},
+    "Boyz10": {"name": "Boyz", "num": "10", "points": 75},
+    "Boyz20": {"name": "Boyz", "num": "20", "points": 150},
     "Gretchin10": {"name": "Gretchin", "num": "10", "points": 45},
     "Gretchin20": {"name": "Gretchin", "num": "20", "points": 80}
 }
@@ -44,7 +44,7 @@ def calculate(points):
     currentpoints = totalpoints
     global units
     units = {
-        "leaders": {},
+        "leader": {},
         "battleline": {},
         "other": {}
     }
@@ -79,7 +79,7 @@ def removeother(other):
 
 @app.route("/addleader/<leader>")
 def addleader(leader):
-    leader_data = Leaders[leader]
+    leader_data = Leader[leader]
     if(check_points(leader_data["points"])):
         if leader in units["leader"]:
             units["leader"][leader][1] += 1
@@ -112,7 +112,7 @@ def addother(other):
 
 @app.route("/builder")
 def builder():
-    return render_template('builder.html', points=currentpoints)
+    return render_template('builder.html', points=currentpoints, leader_list=units["leader"], battleline_list=units["battleline"], other_list=units["other"])
 
 def check_points(points_to_add):
     global currentpoints
