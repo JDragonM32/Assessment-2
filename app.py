@@ -1,5 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
-import mysql.connector
+import sqlite3
+conn = sqlite3.connect('database.db')
+cursor = conn.cursor
 
 app = Flask(__name__)
 
@@ -7,7 +9,7 @@ totalpoints = 0
 currentpoints =0
 
 units = {
-    "leaders":{},
+    "leader":{},
     "battleline":{},
     "other":{}
 }
@@ -50,67 +52,71 @@ def calculate(points):
 
 @app.route("/removeleader/<leader>")
 def removeleader(leader):
-    leader_data = Leaders[leader]
-    if leader in units["leaders"]:
-        units["leaders"][leader][1] -= 1
-    else:
-        units["leaders"][leader] = [leader_data, 1]
+    if leader in units["leader"]:
+        units["leader"][leader][1] -= 1
+        if(units["leader"][leader][1] <=0):
+            units["leader"].pop(leader)
     calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/removebattleline/<battleline>")
 def removebattleline(battleline):
-    battleline_data = Battleline[battleline]
     if battleline in units["battleline"]:
         units["battleline"][battleline][1] -= 1
-    else:
-        units["battleline"][battleline] = [battleline_data, 1]
+        if(units["battleline"][battleline][1] <=0):
+            units["battleline"].pop(battleline)
     calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/removeother/<other>")
 def removeother(other):
-    other_data = Other[other]
     if other in units["other"]:
         units["other"][other][1] -= 1
-    else:
-        units["other"][other] = [other_data, 1]
+        if(units["other"][other][1] <=0):
+            units["other"].pop(other)
     calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/addleader/<leader>")
 def addleader(leader):
     leader_data = Leaders[leader]
-    if leader in units["leaders"]:
-        units["leaders"][leader][1] += 1
-    else:
-        units["leaders"][leader] = [leader_data, 1]
+    if(check_points(leader_data["points"])):
+        if leader in units["leader"]:
+            units["leader"][leader][1] += 1
+        else:
+            units["leader"][leader] = [leader_data, 1]
     calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/addbattleline/<battleline>")
 def addbattleline(battleline):
     battleline_data = Battleline[battleline]
-    if battleline in units["battleline"]:
-        units["battleline"][battleline][1] += 1
-    else:
-        units["battleline"][battleline] = [battleline_data, 1]
+    if(check_points(battleline_data["points"])):
+        if battleline in units["battleline"]:
+            units["battleline"][battleline][1] += 1
+        else:
+            units["battleline"][battleline] = [battleline_data, 1]
     calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/addother/<other>")
 def addother(other):
     other_data = Other[other]
-    if other in units["other"]:
-        units["other"][other][1] += 1
-    else:
-        units["other"][other] = [other_data, 1]
+    if(check_points(other_data["points"])):
+        if other in units["other"]:
+            units["other"][other][1] += 1
+        else:
+            units["other"][other] = [other_data, 1]
     calculate_points()
     return redirect(url_for("builder"))
 
 @app.route("/builder")
 def builder():
     return render_template('builder.html', points=currentpoints)
+
+def check_points(points_to_add):
+    global currentpoints
+    return currentpoints>points_to_add
 
 def calculate_points():
     global totalpoints
@@ -123,8 +129,3 @@ def calculate_points():
             total += unit['points'] * count
     print(total)
     currentpoints = totalpoints - total
-    #as a unit is added, it should be displayed on the right
-    #the points cost of all units added should be calculated and display in the 'Points bar'
-    #'removeunit' should not work if none of that unit has been added
-    #each unit should only be able to be added upto 3 times (6 for battleline)
-    #chosen points limit should not be able to be exceeded

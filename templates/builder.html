@@ -83,31 +83,27 @@
             <div class="page rightpage">
                 <div>
                     <p class="points-text">Total Points: {{ points | default(0) }}</p>
-                    #i want this to display total points spent and the chosen points limit in the format of 'X/X'
                 </div>
                     <br>
                     <p2><b>Leaders</b></p2>
                         <div class="leaderbox">
-                            <p2>Leaders added to list will show here</p2>
-                            #when a Leader unit is added, it should be displayed in this section in the format of 'Name - points cost'
-                            #each time the same unit is added, they should be displayed on a seperate line
-                            <br>
+                            {% for name, data in leader_list.items() %}
+                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                            {% endfor %}
                         </div>
                     <br>
                     <p2><b>Battleline</b></p2>
                         <div class="battlelinebox">
-                            <p2>Battleline units added will show here</p2>
-                            #when a Battleline unit is added, it should be displayed in this section in the format of 'Name, number of models - points cost'
-                            #each time the same unit is added, they should be displayed on a seperate line
-                            <br>
+                            {% for name, data in battleline_list.items() %}
+                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                            {% endfor %}
                         </div>
                     <br>
                     <p2><b>Other</b></p2>
                         <div class="otherbox">
-                            <p2>Any other units added will show here</p2>
-                            #when a Other unit is added, it should be displayed in this section in the format of 'Name, number of models - points cost'
-                            #each time the same unit is added, they should be displayed on a seperate line
-                            <br>
+                            {% for name, data in other_list.items() %}
+                                <p>{{ name }} - {{data[0]["points"] * data[1] }} pts</p>
+                            {% endfor %}
                         </div>
                     <br>
             </div>

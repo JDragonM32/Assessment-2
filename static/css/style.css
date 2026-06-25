@@ -53,7 +53,7 @@ img {
 .pagesplit {
     display: flex;
     align-content: center;
-    width: 90%;
+    width: 100%;
     height: 75%;
 }
 .page {
@@ -86,18 +86,23 @@ img {
     text-align: center;
 }
 .units-box {
-    max-width: 50%;
+    display: inline-block;
+    width: 50%;
     text-align: left;
+    width: 100%;
 }
 .btnunit {
+    display: inline-block;
     align-self: center;
     width: fit-content;
 }
 .btnminus {
+    display: inline-block;
     align-self: left;
     width: fit-content;
 }
 .btnplus {
+    display: inline-block;
     align-self: right;
     width: fit-content;
 }
@@ -153,8 +158,9 @@ p2 {
 
 .unit-btns {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 5px;
+    gap: 1px;
 }
 
 .btn-class {
@@ -165,12 +171,12 @@ p2 {
     background-color: black;
     color: #04AA6D;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 5px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    margin: 5px;
+    margin: 1px;
     white-space: nowrap;
     height: 44px;
     box-sizing: border-box;
