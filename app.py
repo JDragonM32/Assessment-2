@@ -3,6 +3,34 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 cursor = conn.cursor
 
+cursor.execute('''CREATE TABLE leader
+               (num INTEGER, name TEXT, points INTEGER)''')
+conn.commit()
+
+cursor.execute('''CREATE TABLE battleline
+               (num INTEGER, name TEXT, points INTEGER)''')
+conn.commit()
+
+cursor.execute('''CREATE TABLE other
+               (num INTEGER, name TEXT, points INTEGER)''')
+conn.commit()
+
+cursor.execute("INSERT INTO leader (num, name, points) VALUES (?, ?, ?)",
+               (1, 'Warboss', 75),
+               (1, 'Weirdboy, 65'))
+conn.commit()
+
+cursor.execute("INSERT INTO battleline (num, name, points) VALUES (?, ?, ?)",
+               (10, 'Boyz', 75),
+               (20, 'Boyz', 150),
+               (10, 'Gretchin', 45),
+               (20, 'Gretchin', 80))
+conn.commit()
+
+cursor.execute("INSERT INTO other (num, name, points) VALUES (?, ?, ?)",
+               (1, 'Big Mek Dakkarig', 100))
+conn.commit()
+
 app = Flask(__name__)
 
 totalpoints = 0
