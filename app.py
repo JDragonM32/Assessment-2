@@ -1,34 +1,43 @@
 from flask import Flask, render_template, url_for, request, redirect
 import sqlite3
 conn = sqlite3.connect('database.db')
-cursor = conn.cursor
+cursor = conn.cursor()
 
-cursor.execute('''CREATE TABLE leader
+cursor.execute('''CREATE TABLE IF NOT EXISTS leader
                (num INTEGER, name TEXT, points INTEGER)''')
 conn.commit()
 
-cursor.execute('''CREATE TABLE battleline
+cursor.execute('''CREATE TABLE IF NOT EXISTS battleline
                (num INTEGER, name TEXT, points INTEGER)''')
 conn.commit()
 
-cursor.execute('''CREATE TABLE other
+cursor.execute('''CREATE TABLE IF NOT EXISTS other
                (num INTEGER, name TEXT, points INTEGER)''')
 conn.commit()
 
-cursor.execute("INSERT INTO leader (num, name, points) VALUES (?, ?, ?)",
-               (1, 'Warboss', 75),
-               (1, 'Weirdboy, 65'))
+leaders = [
+    (1, "Warboss", 75),
+    (1, "Weirdboy", 65)
+]
+query = "INSERT INTO leader (num, name, points) VALUES (?, ?, ?)"
+cursor.executemany(query, leaders)
 conn.commit()
 
-cursor.execute("INSERT INTO battleline (num, name, points) VALUES (?, ?, ?)",
-               (10, 'Boyz', 75),
-               (20, 'Boyz', 150),
-               (10, 'Gretchin', 45),
-               (20, 'Gretchin', 80))
+battlelines = [
+    (10, "Boyz", 75),
+    (20, "Boyz", 150),
+    (10, "Gretchin", 45),
+    (20, "Gretchin", 80)
+]
+query = "INSERT INTO battleline (num, name, points) VALUES (?, ?, ?)"
+cursor.executemany(query, battlelines)
 conn.commit()
 
-cursor.execute("INSERT INTO other (num, name, points) VALUES (?, ?, ?)",
-               (1, 'Big Mek Dakkarig', 100))
+others = [
+    (1, "Big Mek Dakkarig", 100)
+]
+query = "INSERT INTO other (num, name, points) VALUES (?, ?, ?)"
+cursor.executemany(query, others)
 conn.commit()
 
 app = Flask(__name__)
